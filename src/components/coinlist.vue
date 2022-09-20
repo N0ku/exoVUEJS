@@ -4,22 +4,22 @@
   <div class="row" v-for="dataList in apiData" :key="dataList">
     <ul v-for="data in dataList" :key="data">
       <li>
-        {{ apiData }}
+        {{ data }}
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-/* import axios from "axios";
- */
+ import axios from "axios";
+ 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "coinlist",
   data() {
     return {
       localTime: "00H00min00s",
-      apiData: "",
+      apiData: {},
     };
   },
   methods: {
@@ -41,8 +41,8 @@ export default {
     },
     requete() {
       console.log("coucou");
-      /*  axios.get("https://api.coingecko.com/api/v3/coins/")
-       .then(json => this.apiData = json);   */
+        axios.get("https://api.coingecko.com/api/v3/coins/")
+       .then(json => this.apiData = json);   
       /*  fetch("https://api.coingecko.com/api/v3/coins/")
         .then((result) => result.json())
         .then((json) => (this.apiData = json)); */
@@ -55,7 +55,7 @@ export default {
     this.requete();
   },
   beforeUnmount() {
-    clearInterval(1000);
+    clearInterval(this.localTime);
   },
 };
 </script>
