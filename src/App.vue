@@ -1,17 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <mylist />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import mylist from "./components/coinlist.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    mylist,
   }
-}
+};
+
+
+
+
+/* const CoinGecko = require('coingecko-api');
+
+//2. Initiate the CoinGecko API Client
+const CoinGeckoClient = new CoinGecko();
+
+//3. Make calls
+var func = async () => {
+  let data = await CoinGeckoClient.ping();
+  return data;
+};
+console.log(func); */
 </script>
 
 <style>
